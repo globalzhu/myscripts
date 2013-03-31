@@ -1,0 +1,2 @@
+* * * * * /store/user_scripts/ssh-proxy.sh>>/store/user_scripts/logs/proxy.log
+* * * * * /store/user_scripts/ddns.sh>>/store/user_scripts/logs/ddns.log
