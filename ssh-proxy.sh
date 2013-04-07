@@ -1,15 +1,7 @@
 #!/bin/sh
 
 function is_proxy_service_on(){
-	echo "Checking netcat ..."
-		command -v nc
-		if [ $? -eq 1 ]
-			then
-				echo "Netcat not found."
-		else
-			echo "Netcat exist Sniffering port $1"		
-				fi
-				nc -z localhost $1
+	netstat -tnl|grep -q $1
 }
 
 function start_service51(){

@@ -36,8 +36,7 @@ function do_completed ()
 }    # ----------  end of function do_completed  ----------
 function download ()
 {
-	lixian_cli download $1
-	lixian_cli delete $1
+	lixian_cli download $1 && lixian_cli delete $1
 	size 100
 }    
 function size(){
