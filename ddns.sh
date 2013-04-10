@@ -25,9 +25,9 @@ update_url="http://[USERNAME]:[PASSWORD]@members.3322.org/dyndns/update?system=d
 echo "update_url:$update_url"
 
 #change username
-update_url=$(echo $update_url | sed s/"\[USERNAME\]"/"slackwareer"/g)
+update_url=$(echo $update_url | sed s/"\[USERNAME\]"/"$(fetch_parameter.sh password username)"/g)
 #change password
-update_url=$(echo $update_url | sed s/"\[PASSWORD\]"/"330953127"/g)
+update_url=$(echo $update_url | sed s/"\[PASSWORD\]"/"$(fetch_parameter.sh password password)"/g)
 #change domain
 update_url=$(echo $update_url | sed s/"\[DOMAIN\]"/"slackwareer.f3322.org"/g)
 #change ipaddr
