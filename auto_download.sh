@@ -1,23 +1,4 @@
 #!/bin/bash
-#===============================================================================
-#
-#          FILE:  auto_download.sh
-# 
-#         USAGE:  ./auto_download.sh 
-# 
-#   DESCRIPTION:  
-# 
-#       OPTIONS:  ---
-#  REQUIREMENTS:  ---
-#          BUGS:  ---
-#         NOTES:  ---
-#        AUTHOR:  TimeBreaker (), slackwareer@gmil.com
-#       COMPANY:  slackwareer.f3322.org
-#       VERSION:  1.0
-#       CREATED:  2013年01月23日 11时34分04秒 CST
-#      REVISION:  ---
-#===============================================================================
-
 
 function do_completed ()
 {
@@ -36,7 +17,7 @@ function do_completed ()
 }    # ----------  end of function do_completed  ----------
 function download ()
 {
-	lixian_cli download $1 && lixian_cli delete $1
+	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py download $1 && /store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py delete $1
 	size 100
 }    
 function size(){
@@ -44,7 +25,7 @@ function size(){
 }
 cd /store/movie
 
-lixian_cli list | while read line; 
+/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py list | while read line; 
 do echo $line|grep -q completed; 
 if [ $? -eq 0 ] 
 then

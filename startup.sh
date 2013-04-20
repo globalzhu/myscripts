@@ -1,4 +1,3 @@
 #!/bin/bash
 fetch_parameter.sh password password | sudo -S ./cpu_freq.sh
-sudo ./ntp.sh
-
+fetch_parameter.sh password password | sudo ./ntp.sh
