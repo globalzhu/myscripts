@@ -21,10 +21,10 @@ function download ()
 	size 100
 }    
 function size(){
-	cat downloaded_list|head -100 > downloaded_list
+	cat /store/movie/downloaded_list|head -100 > /store/movie/downloaded_list
 }
-cd /store/movie
 
+cd /store/movie
 /store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py list | while read line; 
 do echo $line|grep -q completed; 
 if [ $? -eq 0 ] 
