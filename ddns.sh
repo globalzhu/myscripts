@@ -22,12 +22,13 @@ echo "new ip is not the same with the old ip continue"
 fi
 
 update_url="http://[USERNAME]:[PASSWORD]@members.3322.org/dyndns/update?system=dyndns&hostname=[DOMAIN]&myip=[IP]"
-echo "update_url:$update_url"
 
+username=$(fetch_parameter.sh /etc/mypass username)
+password=$(fetch_parameter.sh /etc/mypass password)
 #change username
-update_url=$(echo $update_url | sed s/"\[USERNAME\]"/"$(fetch_parameter.sh password username)"/g)
+update_url=$(echo $update_url | sed s/"\[USERNAME\]"/"$username"/g)
 #change password
-update_url=$(echo $update_url | sed s/"\[PASSWORD\]"/"$(fetch_parameter.sh password password)"/g)
+update_url=$(echo $update_url | sed s/"\[PASSWORD\]"/"$password"/g)
 #change domain
 update_url=$(echo $update_url | sed s/"\[DOMAIN\]"/"slackwareer.f3322.org"/g)
 #change ipaddr
