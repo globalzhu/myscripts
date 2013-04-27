@@ -3,17 +3,17 @@
 function do_completed ()
 {
 	movie_name=`echo $line|awk '{printf $2}'`
-		movie_id=`echo $line|awk '{printf $1}'`
-		echo "checking movie:$movie_name"
-		cat /store/movie/downloaded_list |grep -q $movie_id
-		if [ ! $? -eq 0 ]
-			then
-				echo "$movie_name not downloaded,so download it..."
-				download $movie_id
-				echo $movie_id >> /store/movie/downloaded_list
-		else
-			echo "$movie_name downloaded!!!!!!!"
-				fi
+	movie_id=`echo $line|awk '{printf $1}'`
+	echo "checking movie:$movie_name"
+	cat /store/movie/downloaded_list |grep -q $movie_id
+	if [ ! $? -eq 0 ]
+	then
+		echo "$movie_name not downloaded,so download it..."
+		download $movie_id
+		echo $movie_id >> /store/movie/downloaded_list
+	else
+		echo "$movie_name downloaded!!!!!!!"
+	fi
 }    # ----------  end of function do_completed  ----------
 function download ()
 {
