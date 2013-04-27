@@ -1,5 +1,6 @@
 #!/bin/bash
-###author junxian
+
+###author slackwareer
 
 function break_dir(){
 	ls -a $1|grep -q .svn
