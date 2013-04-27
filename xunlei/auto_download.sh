@@ -21,7 +21,8 @@ function download ()
 	size 100
 }    
 function size(){
-	cat /store/movie/downloaded_list|head -100 > /store/movie/downloaded_list
+	cat /store/movie/downloaded_list|head -100 > /tmp/.downloaded
+	cat /tmp/.downloaded > /store/movie/downloaded_list
 }
 
 cd /store/movie
