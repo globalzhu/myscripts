@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # written by ywj
-ipaddr=$( echo `wget -q -O- http://www.3322.org/dyndns/getip`)
+ipaddr=$(get_ip.sh)
 if [ -f /store/user_scripts/oldip ]
 then
-oldip=`cat /store/user_scripts/oldip`
+	oldip=`cat /store/user_scripts/oldip`
 else
-oldip=""
+	oldip=""
 fi
 echo $ipaddr > /store/user_scripts/oldip
 
@@ -21,23 +21,13 @@ else
 echo "new ip is not the same with the old ip continue"
 fi
 
-update_url="http://[USERNAME]:[PASSWORD]@members.3322.org/dyndns/update?system=dyndns&hostname=[DOMAIN]&myip=[IP]"
 
 username=$(fetch_parameter.sh /etc/mypass username)
 password=$(fetch_parameter.sh /etc/mypass password)
-#change username
-update_url=$(echo $update_url | sed s/"\[USERNAME\]"/"$username"/g)
-#change password
-update_url=$(echo $update_url | sed s/"\[PASSWORD\]"/"$password"/g)
-#change domain
-update_url=$(echo $update_url | sed s/"\[DOMAIN\]"/"slackwareer.f3322.org"/g)
-#change ipaddr
-update_url=$(echo $update_url | sed s/"\[IP\]"/"$ipaddr"/g)  
-#delete ""
-update_url=$(echo $update_url | sed s/"\""/""/g)  
-#update  ipaddr 
+domain="slackwareer.f3322.org"
+
+update_url="http://$username:$password@members.3322.org/dyndns/update?system=dyndns&hostname=$domain&myip=$ipaddr"
+
 echo "wget -q -O- $update_url" 
-
 wget -q -O- $update_url
-
 echo "Finished.."
