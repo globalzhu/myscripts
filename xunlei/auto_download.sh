@@ -27,11 +27,11 @@ function size(){
 
 cd /store/movie
 /store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py list | while read line; 
-do echo $line|grep -q completed; 
+do echo $line|grep -q completed
 if [ $? -eq 0 ] 
 then
-do_completed $line
+	do_completed $line
 else
-echo "$line not completed."
+	echo "$line not completed."
 fi 
 done
