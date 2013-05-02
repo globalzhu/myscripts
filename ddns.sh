@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # written by ywj
-ipaddr=$(get_ip.sh)
+ipaddr=$(/store/user_scripts/get_ip.sh)
 if [ -f /store/user_scripts/oldip ]
 then
 	oldip=`cat /store/user_scripts/oldip`
