@@ -17,7 +17,8 @@ function do_completed ()
 }    # ----------  end of function do_completed  ----------
 function download ()
 {
-	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py download $1 && /store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py delete $1
+	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py download $1  
+	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py delete $1
 	size 100
 }    
 function size(){
