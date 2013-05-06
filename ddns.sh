@@ -22,8 +22,8 @@ echo "new ip is not the same with the old ip continue"
 fi
 
 
-username=$(fetch_parameter.sh /etc/mypass username)
-password=$(fetch_parameter.sh /etc/mypass password)
+username=$(/store/user_scripts/fetch_parameter.sh /etc/mypass username)
+password=$(/store/user_scripts/fetch_parameter.sh /etc/mypass password)
 domain="slackwareer.f3322.org"
 
 update_url="http://$username:$password@members.3322.org/dyndns/update?system=dyndns&hostname=$domain&myip=$ipaddr"
