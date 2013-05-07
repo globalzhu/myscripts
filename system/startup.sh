@@ -1,3 +1,4 @@
 #!/bin/bash
-fetch_parameter.sh password password | sudo -S ./cpu_freq.sh
-fetch_parameter.sh password password | sudo -S ./ntp.sh
+password=$(fetch_parameter.sh /etc/mypass password)
+echo $password | sudo -S /store/user_scripts/system/cpu_freq.sh
+echo $password | sudo -S /store/user_scripts/system/ntp.sh
