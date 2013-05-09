@@ -1,4 +1,6 @@
 * * * * * /store/user_scripts/ssh-proxy.sh>>/store/user_scripts/logs/proxy.log
 * * * * * /store/user_scripts/ddns.sh>>/store/user_scripts/logs/ddns.log
 * * * * * /home/slackwareer/ip_to_github.sh>>/store/user_scripts/logs/ip_update_to_github.log
-* * * * * /store/user_scripts/remote-router.sh >> /store/user_scripts/logs/remote-router.log
+*/10 * * * * /store/user_scripts/squid_restart.sh>>/store/user_scripts/logs/squid_restart.log
+* * * * * /store/user_scripts/test/test_crontab.sh>>/store/user_scripts/logs/test_cron.log
+* * * * * /store/user_scripts/remote-router.sh>>/store/user_scripts/logs/remote_router.log
