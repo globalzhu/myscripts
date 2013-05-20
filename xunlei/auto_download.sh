@@ -9,7 +9,10 @@ function do_completed ()
 	if [ ! $? -eq 0 ]
 	then
 		echo "$movie_name not downloaded,so download it..."
-		download $movie_id
+		if [[ $? == 0 ]]
+		then
+			download $movie_id
+		fi
 		echo $movie_id >> /store/movie/downloaded_list
 	else
 		echo "$movie_name downloaded!!!!!!!"
@@ -17,9 +20,9 @@ function do_completed ()
 }    # ----------  end of function do_completed  ----------
 function download ()
 {
-	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py download $1  
+	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py download $1 --overwrite 
 	/store/yaourt/xunlei-lixian-git/xunlei-lixian/lixian_cli.py delete $1
-	size 100
+	size 10
 }    
 function size(){
 	cat /store/movie/downloaded_list|head -100 > /tmp/.downloaded

@@ -1,6 +1,4 @@
 #!/bin/bash
 
-http_ip=$(curl -qs http://ddns.oray.com/checkip)
-ip=${http_ip##*:}
-ip=${ip%%<*}
-echo $ip
+http_ip=$(curl -qs http://ip.3322.net/)
+echo $http_ip
